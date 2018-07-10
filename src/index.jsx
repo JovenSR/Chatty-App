@@ -7,14 +7,10 @@ require("../styles/application.scss");
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.jsx';
-import ChatBar from './ChatBar.jsx';
-import Message from './Message.jsx';
+
+
 
 ReactDOM.render(
-  <div>
-    <App />
-    <Message />
-    <ChatBar />
 
-  </div>,
+    <App />,
 document.getElementById('react-root'));
