@@ -6,11 +6,34 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.socket = new WebSocket("ws:localhost:3001", "protocolOne");
+
     this.state = {currentUser: {name: ""},
                   messages: [{username: "bob", content: "hello"}] }
+    this.message = {};
+
+    this.onNewPost = this.onNewPost.bind(this);
   }
 
+  onNewPost(content, username) {
+    this.message.username = username;
+    this.message.content = content;
+    this.setState({
+      messages: [...this.state.messages, {username: username, content: content}]
+    })
+  }
+
+
+
   componentDidMount() {
+
+
+   this.socket.onopen =  (event) => {
+    this.socket.send(JSON.stringify(this.message));
+   };
+
+
+    // <Websocket url='http://localhost:3001'/>
   console.log("componentDidMount <App />");
   setTimeout(() => {
     console.log("Simulating incoming message");
@@ -32,7 +55,7 @@ class App extends Component {
 
         <MessageList messages={this.state.messages}/>
 
-        <ChatBar currentUser={this.state.currentUser}/>
+        <ChatBar onNewPost={this.onNewPost} currentUser={this.state.currentUser} socket={this.socket}/>
 
 
       </div>
