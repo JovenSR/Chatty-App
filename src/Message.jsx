@@ -6,8 +6,8 @@ function Message(props){
     return (
       <main className="messages">
         <div className="message">
-          <span className="message-username">{props.username}</span>
-          <span className="message-content">{props.content}</span>
+          <span className="message-username">{props.message.username}</span>
+          <span className="message-content">{props.message.content}</span>
         </div>
         <div className="message system">
           Anonymous1 changed their name to nomnom.
