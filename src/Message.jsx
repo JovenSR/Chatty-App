@@ -1,22 +1,30 @@
 import React, {Component} from 'react';
 
 
-function Message(props){
+function Message(props) {
 
-    return (
-      <main className="messages">
-        <div className="message">
-          <span className="message-username">{props.message.username}</span>
-          <span className="message-content">{props.message.content}</span>
-        </div>
-        <div className="message system">
-          Anonymous1 changed their name to nomnom.
-        </div>
-      </main>
-    );
+    if(props.notification){
+        return (
+            <main className="messages">
+              <div className="message">
+                  <span className="message-username">{props.message.username}</span>
+                  <span className="message-content">{props.message.content}</span>
+              </div>
+              <div className="message system">
+                  {props.notification}
+              </div>
+          </main>
+        );
+    } else {
+        return (
+            <div>
+              <div className="message">
+                  <span className="message-username">{props.message.username}</span>
+                  <span className="message-content">{props.message.content}</span>
+              </div>
+            </div>)
+    }
 
 }
 
-export {Message};
-
-
+export { Message };
