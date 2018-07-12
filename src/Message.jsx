@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-
 function Message(props) {
 
     if(props.notification){
@@ -24,7 +23,6 @@ function Message(props) {
               </div>
             </div>)
     }
-
 }
 
 export { Message };

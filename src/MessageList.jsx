@@ -12,7 +12,6 @@ class MessageList extends Component {
     const renderedMessages = messages.map((message , index) =>
       (<Message key={index} message={message} notification={message.notification} />));
 
-
   return (
     <div>
         <main className="messages">
@@ -23,7 +22,5 @@ class MessageList extends Component {
 
   }
 }
-
-
 
 export default MessageList;

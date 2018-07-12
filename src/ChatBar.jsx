@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-
 class ChatBar extends Component {
   constructor(props) {
     super(props);
@@ -28,8 +27,6 @@ class ChatBar extends Component {
       this.props.onNewPost(this.state.username, this.state.content, messageType)
     }
   }
-
-
 
   render() {
     return (
