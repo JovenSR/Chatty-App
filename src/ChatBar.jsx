@@ -24,7 +24,8 @@ class ChatBar extends Component {
   handleKeyPress(event) {
     const messageType = 'postMessage';
     if(event.key === "Enter") {
-      this.props.onNewPost(this.state.username, this.state.content, messageType)
+      this.props.onNewPost(this.state.username, this.state.content, messageType);
+      this.setState({content: ''});
     }
   }
 
