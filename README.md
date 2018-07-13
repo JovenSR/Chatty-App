@@ -13,7 +13,11 @@ npm start
 open http://localhost:3000
 ```
 
+### Screenshots
 
+!["Screenshot of messages between two clients"](https://github.com/JovenSR/Chatty-App/blob/master/docs/Screen%20Shot%202018-07-12%20at%208.07.44%20PM.png?raw=true)
+
+!["Screenshot of users online"](https://github.com/JovenSR/Chatty-App/blob/master/docs/Screen%20Shot%202018-07-12%20at%208.08.52%20PM.png?raw=true)
 
 
 ### Dependencies
