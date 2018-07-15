@@ -21,6 +21,7 @@ class ChatBar extends Component {
     });
   }
 
+  //on 'enter', use onNewPost function and setState of content if conditions are met
   handleKeyPress(event) {
     const messageType = 'postMessage';
     if(event.key === "Enter") {

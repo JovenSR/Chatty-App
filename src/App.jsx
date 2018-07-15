@@ -14,6 +14,8 @@ class App extends Component {
     this.newUsername = this.newUsername.bind(this);
   }
 
+
+  // Handles updates to username and new posts and sends to server. Passed down to ChatBar
   onNewPost(username, content, messagetype) {
    if(this.state.currentUser !== username){
      let obj = {
@@ -38,6 +40,7 @@ class App extends Component {
   componentDidMount() {
     this.socket.onmessage = (event) => {
       let object = JSON.parse(event.data);
+      //display userCount if clients are online
       if(object.type === 'usersOnline') {
         this.setState({users: object.userCount})
       }

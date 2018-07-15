@@ -15,6 +15,7 @@ let contents = '';
 
 const wss = new ws.Server({ server: app });
 
+//sends message back to clients if that client is still open
 function broadcastMessage(message) {
  for (let client of wss.clients) {
    if(client.readyState === ws.OPEN) {
@@ -23,6 +24,7 @@ function broadcastMessage(message) {
   }
 }
 
+//handles incoming messages, parses them, and then sends contents to broadcastMesssage
 function handleMessage(message) {
   var an_id = uuidv1();
   var obj = JSON.parse(message);
@@ -58,6 +60,8 @@ function handleConnection(client) {
 }
 
 wss.on('connection', handleConnection);
+
+//updates online user count without refreshing the page if another client closes
 wss.on('connection', socket => {
   socket.once('close', () => {
     userCount--;
